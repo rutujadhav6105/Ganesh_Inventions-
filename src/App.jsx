@@ -8,7 +8,6 @@ export default function App() {
   // State management
   const [doorOpened, setDoorOpened] = useState(false);
   const [doorHide, setDoorHide] = useState(false);
-  const [doorClosing, setDoorClosing] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // Audio / YouTube Controls
@@ -33,17 +32,14 @@ export default function App() {
   const [copyStatus, setCopyStatus] = useState('🔗 Copy Link');
   const [videoCardNotices, setVideoCardNotices] = useState({});
 
-  // Door close once trigger flag
-  const doorClosedAtEndRef = useRef(false);
-
   // Toggle Body Lock when door screen is overlayed
   useEffect(() => {
-    if (!doorOpened || doorClosing) {
+    if (!doorOpened) {
       document.documentElement.classList.add('locked');
     } else {
       document.documentElement.classList.remove('locked');
     }
-  }, [doorOpened, doorClosing]);
+  }, [doorOpened]);
 
   // Floating Petals Generator
   useEffect(() => {
@@ -95,32 +91,6 @@ export default function App() {
 
     return () => revealObserver.disconnect();
   }, []);
-
-  // Page End Observer to auto-close door
-  useEffect(() => {
-    const pageEnd = document.getElementById('pageEnd');
-    if (!pageEnd) return;
-
-    const endObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && doorOpened && !doorClosedAtEndRef.current) {
-            doorClosedAtEndRef.current = true;
-            setDoorClosing(true);
-            setDoorHide(false);
-            requestAnimationFrame(() => {
-              setDoorOpened(false);
-            });
-            ytCommand('pauseVideo');
-          }
-        });
-      },
-      { threshold: 1.0 }
-    );
-
-    endObserver.observe(pageEnd);
-    return () => endObserver.disconnect();
-  }, [doorOpened]);
 
   // YouTube API command dispatcher
   const ytCommand = (func) => {
@@ -175,84 +145,69 @@ export default function App() {
       {/* ================= ENTRY DOOR ================= */}
       <div
         id="entryScreen"
-        className={`${doorOpened ? 'open' : ''} ${doorHide ? 'hide' : ''} ${
-          doorClosing ? 'closing' : ''
-        }`}
+        className={`${doorOpened ? 'open' : ''} ${doorHide ? 'hide' : ''}`}
       >
         <div className="entry-rangoli"></div>
 
-        {!doorClosing && (
-          <div className="default-content">
-            <div
-              className="door-scene"
-              id="doorScene"
-              role="button"
-              tabIndex={0}
-              aria-label="दार उघडण्यासाठी टॅप करा"
-              onClick={handleOpenDoor}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  e.preventDefault();
-                  handleOpenDoor();
-                }
-              }}
-            >
-              <div className="temple-frame"></div>
-              <div className="side-pillar left"></div>
-              <div className="side-pillar right"></div>
-              <div className="toran">
-                <span>🌿</span><span>🌼</span><span>🌿</span><span>🌼</span>
-                <span>🌿</span><span>🌼</span><span>🌿</span><span>🌼</span><span>🌿</span>
-              </div>
-              <div className="door-medallion">🐘</div>
-              <span className="side-diya left">🪔</span>
-              <span className="side-diya right">🪔</span>
-              <div className="door-well">
-                <div className="door-panel left">
-                  <div className="stud-row top"></div>
-                  <div className="panel-carving">
-                    <div className="inner-panel"></div>
-                    <span className="corner tl">❁</span>
-                    <span className="corner tr">❁</span>
-                    <span className="corner bl">❁</span>
-                    <span className="corner br">❁</span>
-                    <span className="center-motif">🪷</span>
-                  </div>
-                  <div className="handle"></div>
-                  <div className="stud-row bottom"></div>
+        <div className="default-content">
+          <div
+            className="door-scene"
+            id="doorScene"
+            role="button"
+            tabIndex={0}
+            aria-label="दार उघडण्यासाठी टॅप करा"
+            onClick={handleOpenDoor}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                handleOpenDoor();
+              }
+            }}
+          >
+            <div className="temple-frame"></div>
+            <div className="side-pillar left"></div>
+            <div className="side-pillar right"></div>
+            <div className="toran">
+              <span>🌿</span><span>🌼</span><span>🌿</span><span>🌼</span>
+              <span>🌿</span><span>🌼</span><span>🌿</span><span>🌼</span><span>🌿</span>
+            </div>
+            <div className="door-medallion">🐘</div>
+            <span className="side-diya left">🪔</span>
+            <span className="side-diya right">🪔</span>
+            <div className="door-well">
+              <div className="door-panel left">
+                <div className="stud-row top"></div>
+                <div className="panel-carving">
+                  <div className="inner-panel"></div>
+                  <span className="corner tl">❁</span>
+                  <span className="corner tr">❁</span>
+                  <span className="corner bl">❁</span>
+                  <span className="corner br">❁</span>
+                  <span className="center-motif">🪷</span>
                 </div>
-                <div className="door-panel right">
-                  <div className="stud-row top"></div>
-                  <div className="panel-carving">
-                    <div className="inner-panel"></div>
-                    <span className="corner tl">❁</span>
-                    <span className="corner tr">❁</span>
-                    <span className="corner bl">❁</span>
-                    <span className="corner br">❁</span>
-                    <span className="center-motif">🪷</span>
-                  </div>
-                  <div className="handle"></div>
-                  <div className="stud-row bottom"></div>
-                </div>
+                <div className="handle"></div>
+                <div className="stud-row bottom"></div>
               </div>
-              <div className="door-plaque">
-                <h1>गणपती बाप्पा मोरया</h1>
-                <p className="entry-group">॥ शिवतेज ग्रुप, नरसेवाडी ॥</p>
+              <div className="door-panel right">
+                <div className="stud-row top"></div>
+                <div className="panel-carving">
+                  <div className="inner-panel"></div>
+                  <span className="corner tl">❁</span>
+                  <span className="corner tr">❁</span>
+                  <span className="corner bl">❁</span>
+                  <span className="corner br">❁</span>
+                  <span className="center-motif">🪷</span>
+                </div>
+                <div className="handle"></div>
+                <div className="stud-row bottom"></div>
               </div>
             </div>
+            <div className="door-plaque">
+              <h1>गणपती बाप्पा मोरया</h1>
+              <p className="entry-group">॥ शिवतेज ग्रुप, नरसेवाडी ॥</p>
+            </div>
           </div>
-        )}
-
-        {doorClosing && (
-          <div className="closing-content">
-            <span style={{ fontSize: '2.4rem', marginBottom: '0.8rem' }}>🙏</span>
-            <h1>धन्यवाद!</h1>
-            <p className="entry-group">
-              आपल्या उपस्थितीने व शुभेच्छांनी सोहळा पूर्ण झाला<br />
-              गणपती बाप्पा मोरया, पुढच्या वर्षी लवकर या!
-            </p>
-          </div>
-        )}
+        </div>
       </div>
 
       {/* Background YouTube Audio Player */}
@@ -297,8 +252,6 @@ export default function App() {
       </div>
 
       <div className="garland-strip"></div>
-
-
 
       {/* ================= HERO ================= */}
       <header className="hero" id="hero">
@@ -577,8 +530,6 @@ export default function App() {
         </div>
       </section>
 
-
-
       {/* ================= LOCATION ================= */}
       <section id="location">
         <div className="section-title">
@@ -820,8 +771,6 @@ export default function App() {
         <div className="signoff">🙏 गणपती बाप्पा मोरया! 🙏</div>
         <div className="fine-print">Designed by ER. Rutuja Jadhav</div>
       </footer>
-
-      <div id="pageEnd" style={{ height: '1px' }}></div>
     </div>
   );
 }
