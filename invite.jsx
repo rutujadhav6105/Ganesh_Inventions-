@@ -358,61 +358,52 @@ export default function GaneshFestivalInvite() {
           <h2>कार्यक्रम तपशील</h2>
           <div className="rule"></div>
         </div>
-        <div className="details-grid">
-          <div className="detail-card">
-            <div className="d-icon">🕉️</div>
-            <div className="d-label">कार्यक्रमाचे नाव</div>
-            <div className="d-value">गणेशोत्सव २०२६</div>
-          </div>
-          <div className="detail-card">
-            <div className="d-icon">📖</div>
-            <div className="d-label">वर्णन</div>
-            <div className="d-value small">
+        <div className="single-event-wrap">
+          <div className="single-event-card">
+            <div className="sec-header">
+              <div className="sec-icon">🕉️</div>
+              <h3>गणेशोत्सव २०२६</h3>
+              <span className="sec-badge">सार्वजनिक गणेशोत्सव</span>
+            </div>
+            
+            <p className="sec-desc">
               श्री गणेशाच्या आगमनापासून विसर्जनापर्यंतचा भक्तिभावपूर्ण सोहळा, सांस्कृतिक कार्यक्रमांसह.
+            </p>
+
+            <div className="sec-grid">
+              <div className="sec-item">
+                <span className="sec-label">👤 आयोजक</span>
+                <span className="sec-val">शिवतेज ग्रुप, नरसेवाडी</span>
+              </div>
+
+              <div className="sec-item">
+                <span className="sec-label">📅 दिनांक</span>
+                <span className="sec-val">१४ सप्टेंबर २०२६</span>
+              </div>
+
+              <div className="sec-item">
+                <span className="sec-label">⏰ वेळ</span>
+                <span className="sec-val">सकाळी ९:०० — रात्री ९:०० वा.</span>
+              </div>
+
+              <div className="sec-item">
+                <span className="sec-label">📞 संपर्क</span>
+                <span className="sec-val">7385726593</span>
+              </div>
+
+              <div className="sec-item">
+                <span className="sec-label">👗 वेशभूषा</span>
+                <span className="sec-val">पारंपरिक / सोयीस्कर पेहराव</span>
+              </div>
+
+              <div className="sec-item">
+                <span className="sec-label">📢 विशेष सूचना</span>
+                <span className="sec-val">कृपया वेळेवर उपस्थित रहा, पार्किंग सुविधा उपलब्ध आहे.</span>
+              </div>
             </div>
-          </div>
-          <div className="detail-card">
-            <div className="d-icon">📅</div>
-            <div className="d-label">दिनांक</div>
-            <div className="d-value">१४ सप्टेंबर २०२६</div>
-          </div>
-          <div className="detail-card">
-            <div className="d-icon">⏰</div>
-            <div className="d-label">वेळ</div>
-            <div className="d-value">सकाळी ९:०० — रात्री ९:०० वा.</div>
-          </div>
-          <div className="detail-card">
-            <div className="d-icon">🎉</div>
-            <div className="d-label">प्रकार</div>
-            <div className="d-value">सार्वजनिक गणेशोत्सव</div>
-          </div>
-          <div className="detail-card">
-            <div className="d-icon">👤</div>
-            <div className="d-label">आयोजक</div>
-            <div className="d-value">शिवतेज ग्रुप, नरसेवाडी</div>
-          </div>
-          <div className="detail-card">
-            <div className="d-icon">📞</div>
-            <div className="d-label">संपर्क</div>
-            <div className="d-value">7385726593</div>
-          </div>
-          <div className="detail-card">
-            <div className="d-icon">👗</div>
-            <div className="d-label">वेशभूषा</div>
-            <div className="d-value small">पारंपरिक / सोयीस्कर पेहराव</div>
-          </div>
-          <div className="detail-card">
-            <div className="d-icon">📢</div>
-            <div className="d-label">विशेष सूचना</div>
-            <div className="d-value small">
-              कृपया वेळेवर उपस्थित रहा, पार्किंगची सुविधा उपलब्ध आहे.
-            </div>
-          </div>
-          <div className="detail-card">
-            <div className="d-icon">✅</div>
-            <div className="d-label">स्थिती</div>
-            <div className="d-value" style={{ color: 'var(--leaf)' }}>
-              निश्चित (Confirmed)
+
+            <div className="sec-footer">
+              <span className="status-tag">✅ स्थिती: निश्चित (Confirmed)</span>
             </div>
           </div>
         </div>

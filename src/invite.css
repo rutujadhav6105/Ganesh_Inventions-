@@ -1758,3 +1758,99 @@ img {
   font-size: 0.75rem;
   color: rgba(255, 255, 255, 0.35);
 }
+
+/* ================= SINGLE CONSOLIDATED EVENT CARD ================= */
+.single-event-wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1.5rem 1.2rem 4rem;
+}
+
+.single-event-card {
+  background: var(--ivory);
+  border: 2px solid var(--gold);
+  border-radius: 18px;
+  padding: 2.2rem 2rem;
+  box-shadow: var(--shadow);
+  text-align: center;
+  position: relative;
+}
+
+.single-event-card .sec-header {
+  margin-bottom: 1.2rem;
+}
+
+.single-event-card .sec-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.single-event-card h3 {
+  font-size: 2.2rem;
+  color: var(--maroon);
+  margin-bottom: 0.3rem;
+}
+
+.single-event-card .sec-badge {
+  display: inline-block;
+  background: rgba(196, 39, 43, 0.1);
+  color: var(--kumkum);
+  padding: 0.3rem 0.9rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.single-event-card .sec-desc {
+  font-family: 'Tiro Devanagari Marathi', serif;
+  font-size: 1.05rem;
+  color: #4A2A20;
+  line-height: 1.8;
+  margin-bottom: 1.8rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px dashed rgba(212, 160, 41, 0.4);
+}
+
+.single-event-card .sec-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.2rem;
+  text-align: left;
+}
+
+.single-event-card .sec-item {
+  background: rgba(255, 246, 232, 0.6);
+  border: 1px solid rgba(212, 160, 41, 0.3);
+  border-radius: 10px;
+  padding: 0.9rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.single-event-card .sec-label {
+  font-family: 'Tiro Devanagari Marathi', serif;
+  font-size: 0.82rem;
+  color: var(--kumkum);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.single-event-card .sec-val {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--maroon);
+}
+
+.single-event-card .sec-footer {
+  margin-top: 1.8rem;
+  padding-top: 1.2rem;
+  border-top: 1px dashed rgba(212, 160, 41, 0.4);
+}
+
+.single-event-card .status-tag {
+  color: var(--leaf);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
