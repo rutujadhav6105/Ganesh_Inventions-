@@ -585,10 +585,7 @@ export default function GaneshFestivalInvite() {
         </div>
       </section>
 
-      {/* ================= QUOTE BAND ================= */}
-      <div className="quote-band">
-        <p>"गणपती बाप्पा मोरया, मंगलमूर्ती मोरया — पुढच्या वर्षी लवकर या!"</p>
-      </div>
+
 
       {/* ================= LOCATION ================= */}
       <section id="location">
