@@ -829,6 +829,7 @@ export default function GaneshFestivalInvite() {
         </div>
         <a className="rsvp-btn" href="tel:+917385726593">कळवा तुमची उपस्थिती</a>
         <div className="signoff">🙏 गणपती बाप्पा मोरया! 🙏</div>
+        <div className="fine-print">Designed by ER. Rutuja Jadhav</div>
       </footer>
 
       <div id="pageEnd" style={{ height: '1px' }}></div>
