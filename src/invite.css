@@ -1,0 +1,1760 @@
+:root {
+  --maroon: #3E1420;
+  --maroon-deep: #2A0D16;
+  --kumkum: #C4272B;
+  --marigold: #F4901E;
+  --turmeric: #E7A73B;
+  --leaf: #3F6B44;
+  --cream: #FFF6E8;
+  --ivory: #FFFCF5;
+  --gold: #D4A029;
+  --gold-soft: #EACB8C;
+  --ink: #3A1B12;
+  --shadow: 0 10px 30px rgba(42, 13, 22, 0.25);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Mukta', sans-serif;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, .display {
+  font-family: 'Yatra One', cursive;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+.accent-font {
+  font-family: 'Tiro Devanagari Marathi', serif;
+}
+
+::selection {
+  background: var(--marigold);
+  color: var(--ivory);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+html.locked, html.locked body {
+  overflow: hidden;
+  height: 100%;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.garland-strip {
+  height: 14px;
+  width: 100%;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--marigold) 0 10px,
+    var(--kumkum) 10px 20px,
+    var(--turmeric) 20px 30px
+  );
+  background-size: 30px 14px;
+  box-shadow: inset 0 -3px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* ================= STICKY NAV ================= */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 300;
+  background: rgba(42, 13, 22, 0.96);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.7rem 1.4rem;
+  border-bottom: 1px solid rgba(212, 160, 41, 0.35);
+}
+
+.site-nav .brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--turmeric);
+}
+
+.site-nav .brand .logo-dot {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, var(--turmeric), var(--kumkum) 70%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  border: 2px solid var(--gold);
+}
+
+.site-nav .brand span {
+  font-family: 'Yatra One', cursive;
+  font-size: 1.15rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.4rem;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--gold-soft);
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 600;
+  padding: 0.3rem 0.1rem;
+  border-bottom: 2px solid transparent;
+  transition: all 0.25s ease;
+}
+
+.nav-links a:hover {
+  color: var(--turmeric);
+  border-color: var(--turmeric);
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.4rem;
+}
+
+.hamburger span {
+  width: 24px;
+  height: 2.5px;
+  background: var(--turmeric);
+  border-radius: 2px;
+}
+
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 299;
+  background: var(--maroon-deep);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem;
+  transform: translateY(-100%);
+  transition: transform 0.4s ease;
+}
+
+.mobile-menu.open {
+  transform: translateY(0);
+}
+
+.mobile-menu a {
+  color: var(--gold-soft);
+  text-decoration: none;
+  font-family: 'Yatra One', cursive;
+  font-size: 1.5rem;
+}
+
+@media (max-width: 860px) {
+  .nav-links {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+  }
+}
+
+/* ================= ENTRY / DOOR ================= */
+#entryScreen {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  background: radial-gradient(ellipse at 50% 30%, #6B2436 0%, var(--maroon) 50%, var(--maroon-deep) 100%);
+  color: var(--ivory);
+  transition: opacity 0.9s ease, visibility 0.9s ease;
+}
+
+#entryScreen.hide {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.entry-rangoli {
+  position: absolute;
+  inset: 0;
+  opacity: 0.12;
+  background-image: radial-gradient(circle, var(--gold) 1.6px, transparent 1.7px);
+  background-size: 36px 36px;
+  animation: rotate-bg 60s linear infinite;
+}
+
+@keyframes rotate-bg {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 400px 400px;
+  }
+}
+
+#entryScreen h1 {
+  font-size: clamp(1.8rem, 6vw, 2.8rem);
+  color: var(--turmeric);
+  z-index: 2;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  margin-bottom: 0.3rem;
+}
+
+#entryScreen .entry-group {
+  font-family: 'Tiro Devanagari Marathi', serif;
+  font-size: clamp(0.95rem, 2.4vw, 1.15rem);
+  color: var(--gold-soft);
+  margin-top: 0.9rem;
+  z-index: 2;
+}
+
+/* ---------- full-screen traditional temple door ---------- */
+.door-scene {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  perspective: 2200px;
+  cursor: pointer;
+}
+
+.temple-frame {
+  position: absolute;
+  inset: 10px;
+  border: 7px solid var(--gold);
+  border-radius: 170px 170px 18px 18px;
+  box-shadow:
+    inset 0 0 0 3px rgba(0, 0, 0, 0.45),
+    inset 0 0 50px rgba(0, 0, 0, 0.55),
+    0 0 70px rgba(0, 0, 0, 0.6);
+  pointer-events: none;
+  z-index: 8;
+}
+
+.temple-frame::before {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border: 2px solid rgba(230, 190, 110, 0.45);
+  border-radius: 160px 160px 12px 12px;
+}
+
+.side-pillar {
+  position: absolute;
+  top: 60px;
+  bottom: 20px;
+  width: 22px;
+  z-index: 7;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(180deg, var(--gold) 0 3px, transparent 3px 34px),
+    linear-gradient(90deg, #7A5A22, #B8892F 45%, #7A5A22);
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+}
+
+.side-pillar.left {
+  left: 16px;
+  border-radius: 10px 10px 0 0;
+}
+
+.side-pillar.right {
+  right: 16px;
+  border-radius: 10px 10px 0 0;
+}
+
+.door-well {
+  position: absolute;
+  inset: 26px;
+  border-radius: 150px 150px 12px 12px;
+  background: #1B0A0A;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.toran {
+  position: absolute;
+  top: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  display: flex;
+  justify-content: space-evenly;
+  z-index: 9;
+  pointer-events: none;
+}
+
+.toran span {
+  font-size: 1.3rem;
+  animation: toran-sway 2.6s ease-in-out infinite;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.4));
+}
+
+.toran span:nth-child(even) {
+  animation-delay: 0.3s;
+}
+
+@keyframes toran-sway {
+  0%, 100% {
+    transform: rotate(-6deg);
+  }
+  50% {
+    transform: rotate(6deg);
+  }
+}
+
+.door-medallion {
+  position: absolute;
+  top: 48px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, var(--turmeric), var(--kumkum) 75%);
+  border: 3px solid var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.7rem;
+  box-shadow: 0 0 20px rgba(231, 167, 59, 0.55);
+  animation: entry-float 3.4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes entry-float {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-6px);
+  }
+}
+
+.side-diya {
+  position: absolute;
+  bottom: 34px;
+  font-size: 1.6rem;
+  z-index: 9;
+  filter: drop-shadow(0 0 10px rgba(244, 144, 30, 0.7));
+  animation: flicker-small 1.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.side-diya.left {
+  left: 44px;
+}
+
+.side-diya.right {
+  right: 44px;
+}
+
+@keyframes flicker-small {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.75;
+    transform: scale(0.92);
+  }
+}
+
+.door-panel {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  background:
+    repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.08) 0 2px, transparent 2px 30px),
+    linear-gradient(160deg, #8A5322 0%, #6E3E19 45%, #5A3114 100%);
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.55);
+  transition: transform 1.25s cubic-bezier(0.68, -0.15, 0.27, 1.15);
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+.door-panel.left {
+  left: 0;
+  transform-origin: left center;
+  border-radius: 145px 0 0 0;
+}
+
+.door-panel.right {
+  right: 0;
+  transform-origin: right center;
+  border-radius: 0 145px 0 0;
+}
+
+#entryScreen.open .door-panel.left {
+  transform: rotateY(-112deg);
+}
+
+#entryScreen.open .door-panel.right {
+  transform: rotateY(112deg);
+}
+
+.panel-carving {
+  position: absolute;
+  inset: 22px;
+  border: 3px solid rgba(230, 190, 110, 0.55);
+  border-radius: 120px 24px 8px 8px;
+  box-shadow: inset 0 0 0 5px rgba(0, 0, 0, 0.3), inset 0 0 24px rgba(0, 0, 0, 0.45);
+}
+
+.door-panel.right .panel-carving {
+  border-radius: 24px 120px 8px 8px;
+}
+
+.panel-carving .inner-panel {
+  position: absolute;
+  inset: 20px;
+  border: 2px solid rgba(230, 190, 110, 0.35);
+  border-radius: 90px 16px 6px 6px;
+}
+
+.door-panel.right .inner-panel {
+  border-radius: 16px 90px 6px 6px;
+}
+
+.panel-carving .center-motif {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.2rem;
+  color: var(--gold-soft);
+  opacity: 0.45;
+}
+
+.panel-carving .corner {
+  position: absolute;
+  color: var(--gold-soft);
+  font-size: 1rem;
+  opacity: 0.65;
+}
+
+.panel-carving .corner.tl {
+  top: 26px;
+  left: 26px;
+}
+
+.panel-carving .corner.tr {
+  top: 26px;
+  right: 26px;
+}
+
+.panel-carving .corner.bl {
+  bottom: 26px;
+  left: 26px;
+}
+
+.panel-carving .corner.br {
+  bottom: 26px;
+  right: 26px;
+}
+
+.stud-row {
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  height: 3px;
+  background-image: repeating-linear-gradient(90deg, var(--gold-soft) 0 4px, transparent 4px 22px);
+  opacity: 0.5;
+}
+
+.stud-row.top {
+  top: 32px;
+}
+
+.stud-row.bottom {
+  bottom: 32px;
+}
+
+.handle {
+  position: absolute;
+  top: 50%;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 4px solid #7A5A22;
+  background: radial-gradient(circle at 35% 32%, #F3DC96, #C69A3D 55%, #7A5A22 100%);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.55), 0 0 0 4px rgba(0, 0, 0, 0.15);
+  transform: translateY(-50%);
+  z-index: 3;
+}
+
+.handle::after {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border-radius: 50%;
+  background: #3A2508;
+}
+
+.handle::before {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 2px solid rgba(230, 190, 110, 0.4);
+}
+
+.door-panel.left .handle {
+  right: 22px;
+}
+
+.door-panel.right .handle {
+  left: 22px;
+}
+
+.door-plaque {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  text-align: center;
+  padding: 0 1.2rem;
+  transition: opacity 0.5s ease;
+}
+
+#entryScreen.open .door-plaque {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.door-plaque h1 {
+  font-size: clamp(1.7rem, 6vw, 2.6rem);
+  color: var(--turmeric);
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  margin-bottom: 0.4rem;
+}
+
+.door-plaque .entry-group {
+  font-family: 'Tiro Devanagari Marathi', serif;
+  font-size: clamp(0.9rem, 2.2vw, 1.1rem);
+  color: var(--gold-soft);
+}
+
+.closing-content {
+  display: none;
+}
+
+#entryScreen.closing .default-content {
+  display: none;
+}
+
+#entryScreen.closing .closing-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#musicControls {
+  position: fixed;
+  top: 1.2rem;
+  right: 1.2rem;
+  z-index: 200;
+  display: none;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+#musicControls.show {
+  display: flex;
+}
+
+#musicControls button {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid var(--gold-soft);
+  background: var(--maroon-deep);
+  color: var(--turmeric);
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: transform 0.25s ease;
+}
+
+#musicControls button:hover {
+  transform: scale(1.08);
+}
+
+.music-indicator {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 12px;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.music-indicator span {
+  width: 2.5px;
+  background: var(--turmeric);
+  animation: eq 1s ease-in-out infinite;
+}
+
+.music-indicator span:nth-child(1) {
+  height: 5px;
+  animation-delay: 0s;
+}
+
+.music-indicator span:nth-child(2) {
+  height: 10px;
+  animation-delay: 0.2s;
+}
+
+.music-indicator span:nth-child(3) {
+  height: 7px;
+  animation-delay: 0.4s;
+}
+
+@keyframes eq {
+  0%, 100% {
+    transform: scaleY(0.4);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+/* ================= HERO ================= */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem 1.5rem 4rem;
+  background: radial-gradient(ellipse at 50% 0%, #5A1F2E 0%, var(--maroon) 45%, var(--maroon-deep) 100%);
+  color: var(--ivory);
+  overflow: hidden;
+}
+
+.rangoli-bg {
+  position: absolute;
+  inset: 0;
+  opacity: 0.10;
+  background-image: radial-gradient(circle, var(--gold) 1.5px, transparent 1.6px);
+  background-size: 34px 34px;
+  pointer-events: none;
+}
+
+.petal {
+  position: absolute;
+  top: -5%;
+  font-size: 1.2rem;
+  opacity: 0.85;
+  animation: fall linear infinite;
+  pointer-events: none;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(115vh) rotate(360deg);
+    opacity: 0.2;
+  }
+}
+
+.group-logo {
+  width: 78px;
+  height: 78px;
+  border-radius: 50%;
+  z-index: 2;
+  margin-bottom: 0.8rem;
+  background: radial-gradient(circle at 35% 30%, var(--turmeric), var(--kumkum) 75%);
+  border: 3px solid var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  box-shadow: 0 0 24px rgba(231, 167, 59, 0.5);
+}
+
+.hero h1.display {
+  font-size: clamp(2.6rem, 8vw, 4.6rem);
+  color: var(--turmeric);
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+  z-index: 2;
+}
+
+.hero .subhead {
+  font-size: clamp(1rem, 2.4vw, 1.3rem);
+  margin-top: 0.5rem;
+  color: var(--gold-soft);
+  z-index: 2;
+  font-family: 'Tiro Devanagari Marathi', serif;
+}
+
+.hero .meta-line {
+  z-index: 2;
+  margin-top: 1.1rem;
+  font-size: 0.98rem;
+  color: var(--ivory);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.1rem;
+  justify-content: center;
+}
+
+.hero .meta-line span {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+/* countdown */
+.countdown {
+  z-index: 2;
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.countdown .cd-box {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(212, 160, 41, 0.5);
+  border-radius: 10px;
+  padding: 0.8rem 1.1rem;
+  min-width: 72px;
+}
+
+.countdown .cd-num {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--turmeric);
+  font-family: 'Mukta', sans-serif;
+}
+
+.countdown .cd-label {
+  font-size: 0.72rem;
+  color: var(--gold-soft);
+  margin-top: 0.2rem;
+  letter-spacing: 0.5px;
+}
+
+.cta-btn {
+  z-index: 2;
+  margin-top: 2.2rem;
+  display: inline-block;
+  padding: 0.95rem 2.4rem;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(135deg, var(--marigold), var(--kumkum));
+  color: var(--ivory);
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  box-shadow: 0 10px 26px rgba(196, 39, 43, 0.45);
+  transition: transform 0.25s ease;
+}
+
+.cta-btn:hover {
+  transform: translateY(-3px) scale(1.03);
+}
+
+/* ================= GENERIC SECTION TITLE ================= */
+.section-title {
+  text-align: center;
+  padding: 4.5rem 1.5rem 1rem;
+}
+
+.section-title .eyebrow {
+  font-family: 'Tiro Devanagari Marathi', serif;
+  color: var(--kumkum);
+  letter-spacing: 2px;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+}
+
+.section-title h2 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: var(--maroon);
+  margin-top: 0.4rem;
+}
+
+.section-title .rule {
+  width: 70px;
+  height: 3px;
+  margin: 1rem auto 0;
+  background: linear-gradient(90deg, var(--marigold), var(--kumkum));
+  border-radius: 3px;
+}
+
+.section-title.on-dark .eyebrow {
+  color: var(--gold-soft);
+}
+
+.section-title.on-dark h2 {
+  color: var(--turmeric);
+}
+
+/* ================= EVENT DETAILS CARDS ================= */
+.details-grid {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1.5rem 1.2rem 4rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.2rem;
+}
+
+.detail-card {
+  background: var(--ivory);
+  border: 1px solid var(--gold-soft);
+  border-radius: 12px;
+  padding: 1.3rem;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.detail-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 34px rgba(42, 13, 22, 0.25);
+}
+
+.detail-card .d-icon {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.detail-card .d-label {
+  font-family: 'Tiro Devanagari Marathi', serif;
+  font-size: 0.82rem;
+  color: var(--kumkum);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.detail-card .d-value {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--maroon);
+  margin-top: 0.3rem;
+}
+
+.detail-card .d-value.small {
+  font-weight: 400;
+  font-size: 0.95rem;
+  font-family: 'Tiro Devanagari Marathi', serif;
+  color: #4A2A20;
+}
+
+/* ================= TIMELINE (schedule) ================= */
+.timeline {
+  position: relative;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 2rem 1.2rem 5rem;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, var(--gold) 0%, var(--kumkum) 50%, var(--gold) 100%);
+  transform: translateX(-50%);
+  opacity: 0.5;
+}
+
+@media (max-width: 760px) {
+  .timeline::before {
+    left: 26px;
+  }
+}
+
+.t-item {
+  position: relative;
+  width: 50%;
+  padding: 0 3rem 3.4rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.t-item.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.t-item:nth-child(odd) {
+  left: 0;
+  text-align: right;
+}
+
+.t-item:nth-child(even) {
+  left: 50%;
+  text-align: left;
+}
+
+@media (max-width: 760px) {
+  .t-item, .t-item:nth-child(odd), .t-item:nth-child(even) {
+    width: 100%;
+    left: 0;
+    text-align: left;
+    padding: 0 0 2.6rem 66px;
+  }
+}
+
+.t-dot {
+  position: absolute;
+  top: 6px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--ivory);
+  border: 3px solid var(--kumkum);
+  z-index: 2;
+}
+
+.t-item:nth-child(odd) .t-dot {
+  right: -11px;
+}
+
+.t-item:nth-child(even) .t-dot {
+  left: -11px;
+}
+
+@media (max-width: 760px) {
+  .t-item .t-dot {
+    left: 16px !important;
+    right: auto !important;
+  }
+}
+
+.t-dot::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border-radius: 50%;
+  background: var(--marigold);
+  animation: dot-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes dot-pulse {
+  0%, 100% {
+    transform: scale(0.85);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+}
+
+.t-card {
+  display: inline-block;
+  background: var(--ivory);
+  border: 1px solid var(--gold-soft);
+  border-radius: 10px;
+  padding: 1.3rem 1.5rem;
+  box-shadow: var(--shadow);
+  max-width: 400px;
+  text-align: left;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.t-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 34px rgba(42, 13, 22, 0.28);
+}
+
+.t-item:nth-child(odd) .t-card {
+  margin-left: auto;
+}
+
+.t-icon {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--marigold), var(--kumkum));
+  color: var(--ivory);
+  font-size: 1.3rem;
+  margin-bottom: 0.7rem;
+  box-shadow: 0 4px 10px rgba(196, 39, 43, 0.35);
+}
+
+.t-day {
+  font-family: 'Tiro Devanagari Marathi', serif;
+  font-size: 0.78rem;
+  letter-spacing: 1px;
+  color: var(--leaf);
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+}
+
+.t-card h3 {
+  font-size: 1.5rem;
+  color: var(--maroon);
+  margin-bottom: 0.35rem;
+}
+
+.t-datetime {
+  font-size: 0.9rem;
+  color: var(--kumkum);
+  font-weight: 600;
+  margin-bottom: 0.55rem;
+}
+
+.t-card p {
+  font-family: 'Tiro Devanagari Marathi', serif;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #4A2A20;
+}
+
+.t-loc {
+  font-size: 0.82rem;
+  color: var(--leaf);
+  margin-top: 0.5rem;
+}
+
+.padya-anim {
+  width: 100%;
+  max-width: 160px;
+  margin: 0.4rem 0 0.8rem;
+}
+
+.padya-anim svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.padya-anim .drop {
+  animation: drop-fall 1.5s ease-in infinite;
+  transform-origin: center;
+}
+
+.padya-anim .drop:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.padya-anim .drop:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes drop-fall {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(26px);
+    opacity: 0;
+  }
+}
+
+.padya-anim .kalash {
+  animation: pour-tilt 1.5s ease-in-out infinite;
+  transform-origin: 18px 14px;
+}
+
+@keyframes pour-tilt {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-8deg);
+  }
+}
+
+.padya-anim .ripple {
+  animation: ripple-out 1.5s ease-out infinite;
+  transform-origin: center;
+}
+
+@keyframes ripple-out {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* ================= LOCATION ================= */
+.location-wrap {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.5rem 1.2rem 4.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.6rem;
+  align-items: start;
+}
+
+@media (max-width: 800px) {
+  .location-wrap {
+    grid-template-columns: 1fr;
+  }
+}
+
+.loc-card {
+  background: var(--ivory);
+  border: 1px solid var(--gold-soft);
+  border-radius: 14px;
+  padding: 1.6rem;
+  box-shadow: var(--shadow);
+}
+
+.loc-pin {
+  font-size: 1.8rem;
+  animation: pin-bounce 1.8s ease-in-out infinite;
+  display: inline-block;
+}
+
+@keyframes pin-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.loc-card h3 {
+  color: var(--maroon);
+  font-size: 1.5rem;
+  margin: 0.5rem 0 0.3rem;
+}
+
+.loc-card p {
+  font-family: 'Tiro Devanagari Marathi', serif;
+  line-height: 1.8;
+  color: #4A2A20;
+  margin-bottom: 0.3rem;
+}
+
+.loc-card .distance-tag {
+  display: inline-block;
+  margin-top: 0.6rem;
+  background: rgba(63, 107, 68, 0.1);
+  color: var(--leaf);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.82rem;
+}
+
+.directions-btn {
+  display: inline-block;
+  margin-top: 1.1rem;
+  padding: 0.7rem 1.6rem;
+  background: linear-gradient(135deg, var(--marigold), var(--kumkum));
+  color: var(--ivory);
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.map-wrap {
+  border: 2px solid var(--gold);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.map-wrap iframe {
+  display: block;
+  width: 100%;
+  height: 320px;
+  border: 0;
+}
+
+/* ================= PUJA VIDEO ================= */
+.video-section {
+  background: var(--maroon-deep);
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+
+.video-wrap {
+  max-width: 640px;
+  margin: 0 auto;
+  border: 2px solid var(--gold);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+  aspect-ratio: 16/9;
+}
+
+.video-wrap iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0;
+}
+
+/* ================= MANDAL SECTION ================= */
+.mandal-wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 4.5rem;
+  text-align: center;
+}
+
+.mandal-frame {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  margin: 0 auto 1.2rem;
+  background: radial-gradient(circle at 35% 30%, var(--turmeric), var(--kumkum) 75%);
+  border: 5px solid var(--gold);
+  box-shadow: 0 0 0 6px rgba(212, 160, 41, 0.2), var(--shadow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}
+
+.mandal-wrap h2 {
+  color: var(--maroon);
+  font-size: 2.2rem;
+  margin-bottom: 0.6rem;
+}
+
+.mandal-wrap p {
+  font-family: 'Tiro Devanagari Marathi', serif;
+  line-height: 1.9;
+  color: #4A2A20;
+  font-size: 1.05rem;
+}
+
+.mandal-meta {
+  margin-top: 1.2rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+  color: var(--leaf);
+}
+
+.mandal-meta span {
+  background: rgba(63, 107, 68, 0.1);
+  padding: 0.35rem 0.9rem;
+  border-radius: 20px;
+}
+
+.social-row {
+  margin-top: 1.4rem;
+  display: flex;
+  gap: 0.9rem;
+  justify-content: center;
+}
+
+.social-row a {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--maroon);
+  color: var(--turmeric);
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: transform 0.25s ease;
+}
+
+.social-row a:hover {
+  transform: translateY(-3px) scale(1.06);
+}
+
+/* ================= MEMBERS ================= */
+.members-grid {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1.5rem 1.2rem 4.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.4rem;
+}
+
+.member-card {
+  position: relative;
+  background: var(--ivory);
+  border: 1px solid var(--gold-soft);
+  border-radius: 14px;
+  padding: 1.6rem 1.2rem;
+  text-align: center;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease;
+}
+
+.member-card:hover {
+  transform: translateY(-6px);
+}
+
+.member-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  margin: 0 auto 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--marigold), var(--kumkum));
+  color: var(--ivory);
+  font-family: 'Yatra One', cursive;
+  font-size: 1.5rem;
+  border: 3px solid var(--gold);
+}
+
+.member-card h4 {
+  color: var(--maroon);
+  font-size: 1.1rem;
+  font-family: 'Mukta', sans-serif;
+}
+
+.member-card .m-role {
+  color: var(--kumkum);
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-top: 0.2rem;
+}
+
+.member-card .m-desc {
+  font-family: 'Tiro Devanagari Marathi', serif;
+  font-size: 0.82rem;
+  color: #4A2A20;
+  margin-top: 0.6rem;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.35s ease;
+}
+
+.member-card:hover .m-desc,
+.member-card:focus-within .m-desc {
+  max-height: 100px;
+  opacity: 1;
+  margin-top: 0.6rem;
+}
+
+/* ================= GALLERY ================= */
+.gallery-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.5rem 1.2rem 4.5rem;
+  columns: 3 220px;
+  column-gap: 1rem;
+}
+
+@media (max-width: 640px) {
+  .gallery-grid {
+    columns: 2 150px;
+  }
+}
+
+.gallery-item {
+  break-inside: avoid;
+  margin-bottom: 1rem;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--gold-soft);
+}
+
+.gallery-item .ph {
+  width: 100%;
+  aspect-ratio: 1/1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.4rem;
+  background: linear-gradient(135deg, #7A3B2A, #4A2015);
+  color: var(--gold-soft);
+  font-size: 1.8rem;
+  transition: transform 0.4s ease;
+}
+
+.gallery-item:nth-child(3n) .ph {
+  aspect-ratio: 1/1.3;
+  background: linear-gradient(135deg, #3F6B44, #24401f);
+}
+
+.gallery-item:nth-child(4n) .ph {
+  background: linear-gradient(135deg, #8A5322, #4a2b0f);
+}
+
+.gallery-item:hover .ph {
+  transform: scale(1.06);
+}
+
+.gallery-item .cap {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.5rem 0.7rem;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.65), transparent);
+  color: var(--ivory);
+  font-size: 0.78rem;
+}
+
+#lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 500;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+#lightbox.open {
+  display: flex;
+}
+
+#lightbox .lb-box {
+  background: var(--maroon-deep);
+  border: 2px solid var(--gold);
+  border-radius: 14px;
+  padding: 2.4rem;
+  text-align: center;
+  color: var(--gold-soft);
+  max-width: 400px;
+}
+
+#lightbox .lb-close {
+  position: absolute;
+  top: 1.4rem;
+  right: 1.6rem;
+  color: var(--ivory);
+  font-size: 1.8rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+/* ================= VIDEO GALLERY ================= */
+.videos-grid {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1.5rem 1.2rem 4.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.4rem;
+}
+
+.video-card {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--gold-soft);
+  cursor: pointer;
+  aspect-ratio: 16/9;
+}
+
+.video-card .vph {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #5A1F2E, #2A0D16);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-soft);
+  gap: 0.5rem;
+}
+
+.video-card .play-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(244, 144, 30, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.4rem;
+}
+
+.video-card .vcap {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.6rem 0.8rem;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.7), transparent);
+  color: var(--ivory);
+  font-size: 0.82rem;
+  text-align: left;
+}
+
+/* ================= QUOTE BAND ================= */
+.quote-band {
+  background: linear-gradient(135deg, var(--leaf), #2c5030);
+  color: var(--ivory);
+  text-align: center;
+  padding: 3.4rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.quote-band::before,
+.quote-band::after {
+  content: "❀";
+  position: absolute;
+  color: rgba(255, 255, 255, 0.12);
+  font-size: 6rem;
+}
+
+.quote-band::before {
+  top: -1.5rem;
+  left: 2rem;
+}
+
+.quote-band::after {
+  bottom: -2rem;
+  right: 2rem;
+}
+
+.quote-band p {
+  font-family: 'Yatra One', cursive;
+  font-size: clamp(1.4rem, 3.2vw, 2.1rem);
+  max-width: 760px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* ================= INVITATION / SHARE ================= */
+.invite-section {
+  padding: 4.5rem 1.5rem;
+  text-align: center;
+}
+
+.invite-card-share {
+  max-width: 420px;
+  margin: 0 auto;
+  background: var(--ivory);
+  border: 2px solid var(--gold);
+  border-radius: 18px;
+  padding: 2rem 1.8rem;
+  box-shadow: var(--shadow);
+  position: relative;
+}
+
+.invite-card-share .ic-icon {
+  font-size: 2.6rem;
+}
+
+.invite-card-share h3 {
+  color: var(--maroon);
+  font-size: 1.7rem;
+  margin: 0.5rem 0 0.2rem;
+}
+
+.invite-card-share .ic-meta {
+  font-family: 'Tiro Devanagari Marathi', serif;
+  color: #4A2A20;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.qr-box {
+  display: inline-block;
+  padding: 0.6rem;
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid var(--gold-soft);
+}
+
+.qr-box img {
+  width: 150px;
+  height: 150px;
+  display: block;
+}
+
+.qr-caption {
+  font-size: 0.8rem;
+  color: var(--kumkum);
+  margin-top: 0.5rem;
+  font-weight: 600;
+}
+
+.share-row {
+  display: flex;
+  gap: 0.7rem;
+  justify-content: center;
+  margin-top: 1.4rem;
+  flex-wrap: wrap;
+}
+
+.share-row a,
+.share-row button {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1rem;
+  border-radius: 24px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+
+.share-wa {
+  background: #25D366;
+  color: #fff;
+}
+
+.share-fb {
+  background: #1877F2;
+  color: #fff;
+}
+
+.share-ig {
+  background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af);
+  color: #fff;
+}
+
+.share-copy {
+  background: var(--maroon);
+  color: var(--gold-soft);
+}
+
+/* ================= FOOTER ================= */
+.footer {
+  background: var(--maroon-deep);
+  color: var(--ivory);
+  text-align: center;
+  padding: 4rem 1.5rem 2rem;
+}
+
+.footer .f-logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin: 0 auto 0.8rem;
+  background: radial-gradient(circle at 35% 30%, var(--turmeric), var(--kumkum) 75%);
+  border: 3px solid var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+}
+
+.footer h2 {
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  color: var(--turmeric);
+  margin-bottom: 0.4rem;
+}
+
+.footer .f-year {
+  color: var(--gold-soft);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.footer .details {
+  font-family: 'Tiro Devanagari Marathi', serif;
+  font-size: 1.0rem;
+  line-height: 2;
+  color: var(--gold-soft);
+  max-width: 480px;
+  margin: 0 auto 1.2rem;
+}
+
+.footer .social-row {
+  margin-bottom: 1.6rem;
+}
+
+.rsvp-btn {
+  display: inline-block;
+  padding: 0.9rem 2.4rem;
+  background: linear-gradient(135deg, var(--marigold), var(--kumkum));
+  color: var(--ivory);
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  box-shadow: 0 8px 22px rgba(196, 39, 43, 0.4);
+}
+
+.footer .signoff {
+  margin-top: 2.2rem;
+  font-family: 'Yatra One', cursive;
+  font-size: 1.3rem;
+  color: var(--ivory);
+  opacity: 0.9;
+}
+
+.footer .fine-print {
+  margin-top: 1.6rem;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.35);
+}
