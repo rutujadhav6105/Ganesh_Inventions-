@@ -180,7 +180,7 @@ export default function App() {
         }`}
       >
         <div className="entry-rangoli"></div>
-        
+
         {!doorClosing && (
           <div className="default-content">
             <div
@@ -372,7 +372,7 @@ export default function App() {
         <h1 className="display">गणेशोत्सव २०२६</h1>
         <p className="subhead">शिवतेज ग्रुप, नरसेवाडी यांच्यातर्फे सप्रेम आमंत्रण</p>
         <div className="meta-line">
-          <span>📅 भाद्रपद शुद्ध चतुर्थी</span>
+          <span>📅 भाद्रपद शुद्ध चतुर्थी (१४ सप्टेंबर २०२६)</span>
           <span>🕘 सकाळी ९:०० वा.</span>
           <span>📍 नरसेवाडी</span>
         </div>
@@ -424,7 +424,7 @@ export default function App() {
           <div className="detail-card">
             <div className="d-icon">📅</div>
             <div className="d-label">दिनांक</div>
-            <div className="d-value">XX सप्टेंबर २०२६</div>
+            <div className="d-value">१४ सप्टेंबर २०२६</div>
           </div>
           <div className="detail-card">
             <div className="d-icon">⏰</div>
@@ -482,11 +482,11 @@ export default function App() {
               <div className="t-icon">🪔</div>
               <div className="t-day">दिवस १ · भाद्रपद शुद्ध चतुर्थी</div>
               <h3>श्री गणेश मूर्ती स्थापना</h3>
-              <div className="t-datetime">दि. XX सप्टेंबर, सकाळी ९:०० वा.</div>
+              <div className="t-datetime">दि. १४ सप्टेंबर, सकाळी ९:०० वा.</div>
               <p>
                 शुभ मुहूर्तावर श्री गणेशमूर्तीची प्राणप्रतिष्ठा व स्थापना करून पूजा-आरतीने उत्सवाला प्रारंभ केला जाईल.
               </p>
-              <div className="t-loc">📍 मंडळ मंडप, नरसेवाडी</div>
+              <div className="t-loc">📍 शिवतेज ग्रुप, नरसेवाडी</div>
             </div>
           </div>
 
@@ -506,9 +506,9 @@ export default function App() {
                     strokeWidth="2"
                   />
                   <ellipse cx="45" cy="46" rx="14" ry="4.5" fill="#BFE3F5" />
-                  <circle class="drop" cx="34" cy="24" r="2.3" fill="#7BB4D8" />
-                  <circle class="drop" cx="34" cy="24" r="2.3" fill="#7BB4D8" />
-                  <circle class="drop" cx="34" cy="24" r="2.3" fill="#7BB4D8" />
+                  <circle className="drop" cx="34" cy="24" r="2.3" fill="#7BB4D8" />
+                  <circle className="drop" cx="34" cy="24" r="2.3" fill="#7BB4D8" />
+                  <circle className="drop" cx="34" cy="24" r="2.3" fill="#7BB4D8" />
                   <g className="kalash">
                     <path
                       d="M14,14 Q10,10 16,8 L26,8 Q32,10 28,14 L27,20 Q27,26 21,26 Q15,26 15,20 Z"
@@ -523,11 +523,11 @@ export default function App() {
               <div className="t-icon">🪷</div>
               <div className="t-day">दिवस १ · मूर्ती स्थापनेनंतर</div>
               <h3>पाद्य पूजन</h3>
-              <div className="t-datetime">दि. XX सप्टेंबर, सकाळी ९:३० वा.</div>
+              <div className="t-datetime">दि. १४ सप्टेंबर, सकाळी ९:३० वा.</div>
               <p>
                 षोडशोपचार पूजेतील पहिला विधी — बाप्पांच्या चरणांवर पवित्र जलाभिषेक करून भावपूर्ण पाद्य पूजन केले जाईल.
               </p>
-              <div className="t-loc">📍 मंडळ मंडप, नरसेवाडी</div>
+              <div className="t-loc">📍 शिवतेज ग्रुप, नरसेवाडी</div>
             </div>
           </div>
 
@@ -541,7 +541,7 @@ export default function App() {
               <p>
                 ढोल-टाळांच्या गजरात रोज सकाळ-संध्याकाळ बाप्पांची भक्तिभावपूर्ण आरती केली जाईल. सर्वांनी सहभागी व्हावे.
               </p>
-              <div className="t-loc">📍 मंडळ मंडप, नरसेवाडी</div>
+              <div className="t-loc">📍 शिवतेज ग्रुप, नरसेवाडी</div>
             </div>
           </div>
 
@@ -551,11 +551,11 @@ export default function App() {
               <div className="t-icon">🎨</div>
               <div className="t-day">दिवस ४ · सांस्कृतिक कार्यक्रम</div>
               <h3>रांगोळी स्पर्धा</h3>
-              <div className="t-datetime">दि. XX सप्टेंबर, सकाळी १०:०० वा.</div>
+              <div className="t-datetime">दि. १७ सप्टेंबर, सकाळी १०:०० वा.</div>
               <p>
                 सर्व वयोगटांसाठी रंगीबेरंगी रांगोळी स्पर्धा! आपल्या कलागुणांचे दर्शन घडवा आणि आकर्षक बक्षिसे जिंका.
               </p>
-              <div className="t-loc">📍 मंडळ मंडप, नरसेवाडी</div>
+              <div className="t-loc">📍 शिवतेज ग्रुप, नरसेवाडी</div>
             </div>
           </div>
 
@@ -565,11 +565,11 @@ export default function App() {
               <div className="t-icon">🎶</div>
               <div className="t-day">दिवस ५ · सांस्कृतिक कार्यक्रम</div>
               <h3>म्युझिकल चेअर्स</h3>
-              <div className="t-datetime">दि. XX सप्टेंबर, सायं. ६:०० वा.</div>
+              <div className="t-datetime">दि. १८ सप्टेंबर, सायं. ६:०० वा.</div>
               <p>
                 लहानांपासून मोठ्यांपर्यंत सर्वांसाठी धमाल म्युझिकल चेअर्स स्पर्धा! संगीत, हास्यविनोद आणि रोमांचक चुरस.
               </p>
-              <div className="t-loc">📍 मंडळ मंडप, नरसेवाडी</div>
+              <div className="t-loc">📍 शिवतेज ग्रुप, नरसेवाडी</div>
             </div>
           </div>
 
@@ -579,11 +579,11 @@ export default function App() {
               <div className="t-icon">🍛</div>
               <div className="t-day">दिवस ६ · सामुदायिक भोजन</div>
               <h3>महाप्रसाद</h3>
-              <div className="t-datetime">दि. XX सप्टेंबर, दुपारी १२:३० वा.</div>
+              <div className="t-datetime">दि. १९ सप्टेंबर, दुपारी १२:३० वा.</div>
               <p>
                 बाप्पांच्या नैवेद्यानंतर सर्व भाविकांसाठी महाप्रसादाचे आयोजन. सर्वांनी कुटुंबासह सहभागी व्हावे.
               </p>
-              <div className="t-loc">📍 मंडळ मंडप, नरसेवाडी</div>
+              <div className="t-loc">📍 शिवतेज ग्रुप, नरसेवाडी</div>
             </div>
           </div>
 
@@ -593,11 +593,11 @@ export default function App() {
               <div className="t-icon">🎤</div>
               <div className="t-day">दिवस ७ · भक्तिसंध्या</div>
               <h3>भजन / कीर्तन</h3>
-              <div className="t-datetime">दि. XX सप्टेंबर, सायं. ७:०० वा.</div>
+              <div className="t-datetime">दि. २० सप्टेंबर, सायं. ७:०० वा.</div>
               <p>
                 भक्तिमय वातावरणात भजन व कीर्तनाचा कार्यक्रम. सुरेल भजनांनी मंडप दुमदुमून जाईल.
               </p>
-              <div className="t-loc">📍 मंडळ मंडप, नरसेवाडी</div>
+              <div className="t-loc">📍 शिवतेज ग्रुप, नरसेवाडी</div>
             </div>
           </div>
 
@@ -607,7 +607,7 @@ export default function App() {
               <div className="t-icon">🐘</div>
               <div className="t-day">दिवस ११ · अनंत चतुर्दशी</div>
               <h3>श्री गणपती विसर्जन</h3>
-              <div className="t-datetime">दि. XX सप्टेंबर, सायं. ४:०० वा. मिरवणूक</div>
+              <div className="t-datetime">दि. २४ सप्टेंबर, सायं. ४:०० वा. मिरवणूक</div>
               <p>
                 ढोल-ताशांच्या गजरात, "गणपती बाप्पा मोरया" च्या जयघोषात लाडक्या बाप्पांना निरोप दिला जाईल.
               </p>
@@ -620,7 +620,7 @@ export default function App() {
       {/* ================= PUJA VIDEO ================= */}
       <section className="video-section" id="pujavideo">
         <div className="section-title on-dark" style={{ paddingTop: 0 }}>
-          <div className="eyebrow">पाद्य पूजन विधी</div>
+          <div className="eyebrow">सत्यनारायण पूजा</div>
           <h2>पूजा विधी पहा</h2>
           <div className="rule"></div>
         </div>
@@ -650,12 +650,12 @@ export default function App() {
         <div className="location-wrap">
           <div className="loc-card">
             <span className="loc-pin">📍</span>
-            <h3>मंडळ मंडप, नरसेवाडी</h3>
+            <h3>शिवतेज ग्रुप, नरसेवाडी</h3>
             <p>
               पत्ता: नरसेवाडी, महाराष्ट्र<br />
               खूणपत: [जवळील प्रसिद्ध ठिकाण]
             </p>
-            <span className="distance-tag">अंदाजे अंतर: गावाच्या मध्यवर्ती भागापासून ५ मि.</span>
+            <span className="distance-tag">अंदाजे अंतर: गावाच्या मध्यवर्ती भाग</span>
             <br />
             <a
               className="directions-btn"
@@ -692,8 +692,7 @@ export default function App() {
             अनेक वर्षांपासून भक्तिभावाने व एकोप्याने गणेशोत्सव साजरा करणारा आमचा युवा गट. सामाजिक बांधिलकी, सांस्कृतिक कार्यक्रम आणि परंपरेची जपणूक हेच आमचे ध्येय.
           </p>
           <div className="mandal-meta">
-            <span>📆 स्थापना वर्ष: XXXX</span>
-            <span>👥 सदस्य: XX+</span>
+            <span>👥 सदस्य: ५०+</span>
           </div>
           <div className="social-row">
             <a href="#" title="Instagram">📸</a>
@@ -721,7 +720,7 @@ export default function App() {
           ].map((m, idx) => (
             <div key={idx} className="member-card" tabIndex={0}>
               <div className="member-avatar">{m.initial}</div>
-              <h4>[नाव]</h4>
+              <h4>शिवतेज सदस्य</h4>
               <div className="m-role">{m.role}</div>
               <div className="m-desc">{m.desc}</div>
             </div>
@@ -821,8 +820,8 @@ export default function App() {
           <h3>गणेशोत्सव २०२६</h3>
           <div className="ic-meta">
             शिवतेज ग्रुप, नरसेवाडी<br />
-            📅 XX सप्टेंबर २०२६ · 🕘 सकाळी ९:०० वा.<br />
-            📍 मंडळ मंडप, नरसेवाडी
+            १४ सप्टेंबर २०२६ · 🕘 सकाळी ९:०० वा.<br />
+            📍 शिवतेज ग्रुप, नरसेवाडी
           </div>
           <div className="qr-box">
             <img
