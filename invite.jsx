@@ -297,56 +297,7 @@ export default function GaneshFestivalInvite() {
 
       <div className="garland-strip"></div>
 
-      {/* ================= STICKY NAV ================= */}
-      <nav className="site-nav">
-        <div className="brand">
-          <span className="logo-dot">🐘</span>
-          <span>शिवतेज ग्रुप</span>
-        </div>
-        <ul className="nav-links">
-          <li><a href="#hero">मुख्यपृष्ठ</a></li>
-          <li><a href="#event">कार्यक्रम</a></li>
-          <li><a href="#schedule">वेळापत्रक</a></li>
-          <li><a href="#location">स्थळ</a></li>
-          <li><a href="#mandal">मंडळ</a></li>
-          <li><a href="#members">सदस्य</a></li>
-          <li><a href="#gallery">गॅलरी</a></li>
-          <li><a href="#videos">व्हिडिओ</a></li>
-          <li><a href="#contact">संपर्क</a></li>
-        </ul>
-        <button
-          className="hamburger"
-          id="hamburgerBtn"
-          onClick={() => setMobileMenuOpen((prev) => !prev)}
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </nav>
 
-      {/* Mobile Drawer */}
-      <div className={`mobile-menu ${mobileMenuOpen ? 'open' : ''}`} id="mobileMenu">
-        {[
-          { href: '#hero', label: 'मुख्यपृष्ठ' },
-          { href: '#event', label: 'कार्यक्रम' },
-          { href: '#schedule', label: 'वेळापत्रक' },
-          { href: '#location', label: 'स्थळ' },
-          { href: '#mandal', label: 'मंडळ' },
-          { href: '#members', label: 'सदस्य' },
-          { href: '#gallery', label: 'गॅलरी' },
-          { href: '#videos', label: 'व्हिडिओ' },
-          { href: '#contact', label: 'संपर्क' },
-        ].map((item) => (
-          <a
-            key={item.href}
-            href={item.href}
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            {item.label}
-          </a>
-        ))}
-      </div>
 
       {/* ================= HERO ================= */}
       <header className="hero" id="hero">
