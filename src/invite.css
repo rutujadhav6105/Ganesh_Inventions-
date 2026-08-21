@@ -31,9 +31,9 @@ body {
 }
 
 h1, h2, h3, .display {
-  font-family: 'Yatra One', cursive;
-  font-weight: 400;
-  letter-spacing: 0.5px;
+  font-family: 'Mukta', 'Tiro Devanagari Marathi', 'Yatra One', sans-serif;
+  font-weight: 700;
+  letter-spacing: normal;
 }
 
 .accent-font {
